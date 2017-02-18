@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>Post{% if board %} to {{board}}{% endif %} - Saber Imageboard</title>
+		<link rel="stylesheet" href="{{ url_for('static',filename='main.css') }}">
+	</head>
+	<body>
+		<h1>Saber Imageboard</h1>
+		<h2>Post{% if board %} to /{{board}}/{% endif %}</h2>
+		{% if session.error %}<span class="error"><b>Error:</b> {{ session.error }}</span>{% endif %}
+		<p>* = Required</p>
+		<form method="GET" action="/handlePost">
+			<label for="board">Board:</label><input type="text" name="board"{% if board %} value="{{ board }}"{% endif %}></input><br>
+			<label for="name"{% if "name" in session.highlight %} class="highlight"{% endif %}>* Name:</label><input type="text" name="name" value="{% if session.placeholders['name'] != '' %}{{session.placeholders['name']}}{% endif %}"></input><br>
+			<label for="subject">Subject:</label><input type="text" value="{% if session.placeholders['subject'] != '' %}{{session.placeholders['subject']}}{% endif %}"></input><br>
+			<label for="comment"{% if "comment" in session.highlight %} class="highlight"{% endif %}>* Comment:</label><input type="textarea" cols="5" rows="30" name="comment" value="{% if session.placeholders['comment'] != '' %}{{session.placeholders['comment']}}{% endif %}"></input>
+			<input type="submit">
+		</form>
+	</body>
+</html>

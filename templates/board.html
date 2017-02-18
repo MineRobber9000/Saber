@@ -1,0 +1,19 @@
+<html>
+	<head>
+	<title>{{ boardname }} - Saber Imageboard</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='main.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static',filename='posts.css') }}">
+	</head>
+	<body>
+		<h1>Saber Imageboard</h1>
+		<h2>{{ boardname }} (<a href="post">post</a>)</h2>
+		<ul>
+		{% for post in posts %}
+		<li class="postcontainer">Post by {{post.name}}{% if post.subject %} - <span class="subject">{{post.subject}}</span>{% endif %}
+			<ul>
+			<li class="post">{{post.comment|safe}}</li>
+			</ul>
+		</li>
+		{% endfor %}
+	</body>
+</html>

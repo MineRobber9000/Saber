@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>Saber Imageboard</title>
+		<link rel="stylesheet" href="{{ url_for('static',filename='main.css') }}">
+	</head>
+	<body>
+		<h1>Saber Imageboard</h1>
+		<h3>Boards</h3>
+		<ul>
+			{% for board in boards %}
+			<li><a href="{{ url_for("boardPage",board=board) }}">{{ boardNames[board] }}</a>
+			{% endfor %}
+		</ul>
+		<h3>News</h3>
+		<ul>
+		{% for newsItem in news %}
+		<li>{{ newsItem.date }} - {{newsItem.news}}</li>
+		{% endfor %}
+		</ul>
+	</body>
+</html>

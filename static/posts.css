@@ -1,0 +1,17 @@
+ul {
+	list-style: none;
+}
+li.postcontainer {
+	background-color: white;
+	color: limegreen;
+	border-radius: 3px;
+	padding: 5px 5px 5px 5px;
+	margin-bottom: 10px;
+}
+li.postcontainer .subject {
+	font-weight: bold;
+	color: green;
+}
+li.post {
+	color: black;
+}
